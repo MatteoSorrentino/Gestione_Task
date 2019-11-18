@@ -24,7 +24,15 @@ namespace GestioneTask
 
             //costruzione di un task che ritorna un risultato
             var resultTask = Task.Factory.StartNew((inputValue) =>
-                        PerformSomeLongCalculation(inputValue), 5000D);
+                PerformSomeLongCalculation(inputValue), 5000D);
+
+            //esecuzione
+            resultTask.Start();
+
+            //determinazione del risultato
+            Console.WriteLine("Il risultato è: {0}", resultTask.Result);
+
+            Console.ReadLine();
         }
     }
 }
